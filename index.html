@@ -9,18 +9,12 @@
  h1{font-size:1.6rem;margin-bottom:.25rem} h2{font-size:1.1rem;margin-top:2rem}
  .updated{color:#666;font-size:.9rem;margin-top:0}
  li{margin:.4rem 0}
- form{border:1px solid #d0d0d0;border-radius:6px;padding:1.25rem;margin:1.5rem 0;background:#fafafa}
- label{display:block;font-weight:600;margin-bottom:.35rem}
- input[type=tel]{font:inherit;padding:.55rem;width:100%;max-width:20rem;border:1px solid #999;border-radius:4px}
- .consent{display:flex;gap:.7rem;align-items:flex-start;margin:1.25rem 0}
- .consent input{margin-top:.4rem;flex:0 0 auto;width:1.1rem;height:1.1rem}
- .consent label{font-weight:400;font-size:.95rem;margin:0}
- button{font:inherit;font-weight:600;padding:.6rem 1.1rem;border:0;border-radius:4px;background:#1a56b0;color:#fff;cursor:pointer}
- button:hover{background:#154591}
+ .signup{border:1px solid #d0d0d0;border-radius:6px;padding:1.25rem;margin:1.5rem 0;background:#fafafa}
+ .signup p:first-child{margin-top:0}
+ .cta{font-size:1.05rem}
+ blockquote{margin:1rem 0 0;padding:.9rem 1.1rem;border-left:3px solid #1a56b0;background:#fff;font-size:.95rem}
  .note{background:#f4f4f4;border-left:3px solid #999;padding:.8rem 1rem;margin:1.5rem 0;font-size:.95rem}
  code{background:#f4f4f4;padding:.1rem .35rem;border-radius:3px}
- #confirm{display:none;border:1px solid #1a7f3c;background:#f2fbf5;border-radius:6px;padding:1.25rem;margin:1.5rem 0}
- #err{display:none;color:#a11;font-size:.95rem;margin:.6rem 0 0}
 </style>
 </head>
 <body>
@@ -37,34 +31,26 @@ Messages are informational only.</p>
 
 <h2>Sign up for text reminders</h2>
 
-<form id="signup" novalidate>
-  <label for="phone">Mobile number</label>
-  <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel">
+<div class="signup">
+  <p class="cta"><strong>To sign up, text the word <code>START</code> to +1 (385) 398-9120</strong>
+  from the mobile phone you want reminders on.</p>
 
-  <div class="consent">
-    <input type="checkbox" id="consent" name="consent">
-    <label for="consent">I agree to receive recurring informational text messages from Thomas Joshua Pratt
-    about my appointments, coursework due dates and reminders. Message frequency varies, up to 20
-    messages per day. Message and data rates may apply. Reply STOP to unsubscribe and HELP for
-    help. See our <a href="terms.html">Terms and Conditions</a> and
-    <a href="privacy.html">Privacy Policy</a>.</label>
-  </div>
+  <p>You will receive one confirmation message, and reminders will begin. Texting
+  <code>START</code> from your own phone is what gives consent, and it is the only way to join.</p>
 
-  <p id="err">Please check the consent box to continue.</p>
+  <p>By texting <code>START</code> you agree to the following:</p>
 
-  <button type="submit">Sign up for text reminders</button>
-</form>
-
-<div id="confirm">
-  <p><strong>One more step to confirm your consent.</strong></p>
-  <p>Text the word <code>START</code> to <strong>+1 (385) 398-9120</strong> from the mobile
-  number you entered. You will receive one confirmation message, and reminders will begin.</p>
-  <p>This second step confirms the number belongs to you.</p>
+  <blockquote>I agree to receive recurring informational text messages from Thomas Joshua Pratt
+  about my appointments, coursework due dates and reminders. Message frequency varies, up to 20
+  messages per day. Message and data rates may apply. Reply STOP to unsubscribe and HELP for
+  help. See our <a href="terms.html">Terms and Conditions</a> and
+  <a href="privacy.html">Privacy Policy</a>.</blockquote>
 </div>
 
 <p class="note">Consent to receive text messages is not required to use any service and is not a
-condition of any purchase. Checking the box above is entirely voluntary, and the box is unchecked
-by default.</p>
+condition of any purchase. Texting <code>START</code> is entirely voluntary. No message is ever
+sent to a number that has not texted <code>START</code>, and this site does not collect, transmit
+or store any phone number.</p>
 
 <h2>Stopping messages</h2>
 <p><strong>Reply STOP to any message to stop all messages. Reply HELP for help.</strong>
@@ -83,19 +69,5 @@ your own mobile carrier.</p>
 
 <h2>Contact</h2>
 <p><a href="mailto:t.josh.pratt+sms@gmail.com">t.josh.pratt+sms@gmail.com</a></p>
-
-<script>
-document.getElementById('signup').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var err = document.getElementById('err');
-  if (!document.getElementById('consent').checked) {
-    err.style.display = 'block';
-    return;
-  }
-  err.style.display = 'none';
-  document.getElementById('confirm').style.display = 'block';
-  document.getElementById('confirm').scrollIntoView({behavior: 'smooth', block: 'center'});
-});
-</script>
 </body>
 </html>
